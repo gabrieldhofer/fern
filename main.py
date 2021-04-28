@@ -1,54 +1,49 @@
-import numpy as np
+import matplotlib.pyplot as plt
+from random import randint
+import random
+          
 
 
-class waterCA:
-  """
-    Initialize 2D grid 
+class Barnsley:
+	def __call__(self, iterations):
+		x = []
+		y = []
+		x.append(0)
+		y.append(0)
+		current = 0
+		for i in range(1, iterations):
+			z = randint(1, 100)
+			  
+			# for the probability 0.01
+			if z == 1:
+			    x.append(0)
+			    y.append(0.16*(y[current]))
+			  
+			# for the probability 0.85    
+			if z>= 2 and z<= 86:
+			    x.append(0.85*(x[current]) + 0.04*(y[current]))
+			    y.append(-0.04*(x[current]) + 0.85*(y[current])+1.6)
+			  
+			# for the probability 0.07    
+			if z>= 87 and z<= 93:
+			    x.append(0.2*(x[current]) - 0.26*(y[current]))
+			    y.append(0.23*(x[current]) + 0.22*(y[current])+1.6)
+			  
+			# for the probability 0.07    
+			if z>= 94 and z<= 100:
+			    x.append(-0.15*(x[current]) + 0.28*(y[current]))
+			    y.append(0.26*(x[current]) + 0.24*(y[current])+0.44)
+			      
+			current += 1
+		plt.scatter(x, y, s = 0.2, edgecolor ='green')
 
-    @param rows - number of rows in 2D grid
-    @param cols - number of cols in 2D grid
-  """
-  def __init__(self, rows, cols):
-    self.__CA = np.zeros((rows, cols))
+		plt.axis('off')
+		plt.savefig('fern.png')
 
-  """
-    Get the value of the next state in the CA at (r,c)
-
-    @param r - row location of cell
-    @param c - column location of cell
-  """
-  def __next_cell(self,r,c): pass 
-
-  """
-    generate next state for every cell in the grid
-    
-  """
-  def next_2d_grid(self): pass
-    for i in range(width):
-      for j in range(height):
-
-  """
-    water cells appear at the top of the 2d grid
-    at a random x coordinate
-  """
-  def rain(self): pass
-
-  def show(self): pass
-
-  def __obstacles(self): pass
-
-
-def main():
-
-
-
-
-
+		plt.show()
 
 
 
 
-main()
-
-
-
+fern = Barnsley()
+fern(50000)
