@@ -50,4 +50,7 @@ fern = Barnsley()
 fern(50000)
 ```
 
+### Image Result
+[fern_image](https://github.com/hofergabriel/fern/blob/main/fern.png)
+
 
